@@ -1,4 +1,26 @@
+import { useRouter } from "next/router";
+import { ChangeEvent, useState } from "react";
+
 export default function Search() {
+
+    const router = useRouter();
+
+    const [inputValue, setValue] = useState('Octocat');
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) =>{
+        const inputValue = event.target.value;
+        setValue(inputValue);
+    }
+
+    const handleSearch = () => {
+        if (inputValue) return router.push(`/?q=${inputValue}`);
+        if (!inputValue) return router.push("/")
+    }
+
+    const handleKeyPress = (event: { key: any; }) => {
+        if (event.key === "Enter") return handleSearch();
+    }
+
     return (
         <form className="w-full mx-auto">   
             <label form="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -8,8 +30,19 @@ export default function Search() {
                         <path d="M10.609 0c5.85 0 10.608 4.746 10.608 10.58 0 2.609-.952 5-2.527 6.847l5.112 5.087a.87.87 0 01-1.227 1.233l-5.118-5.093a10.58 10.58 0 01-6.848 2.505C4.759 21.16 0 16.413 0 10.58 0 4.747 4.76 0 10.609 0zm0 1.74c-4.891 0-8.87 3.965-8.87 8.84 0 4.874 3.979 8.84 8.87 8.84a8.855 8.855 0 006.213-2.537l.04-.047a.881.881 0 01.058-.053 8.786 8.786 0 002.558-6.203c0-4.875-3.979-8.84-8.87-8.84z" fill="#0079ff"/>
                     </svg>
                 </div>
-                <input type="search" id="default-search" className="block w-full  ps-10 input-search" placeholder="Search GitHub username…" required />
-                <button type="submit" className="absolute end-2.5 bottom-2.5 button">Search</button>
+                <input  type="search" 
+                        id="default-search" 
+                        className="block w-full  ps-10 input-search" 
+                        placeholder="Search GitHub username…" 
+                        required
+                        value={inputValue ?? ""} 
+                        onChange={handleChange}
+                        onKeyDown={handleKeyPress}/>
+                <button type="submit" 
+                        className="absolute end-2.5 bottom-2.5 button"
+                        onClick={handleSearch}>
+                            Search
+                </button>
             </div>
         </form>
 
