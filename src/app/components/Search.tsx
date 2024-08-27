@@ -5,12 +5,6 @@ import { UserContext, UserProvider, useUserContext } from "../context/Context";
 export default function Search() {
 
     const {searchValue, setSearchValue } = useUserContext();
-    // const [searchValue, setSearchValue] = useState('')
-
-    // const apiUrl = 'https://api.github.com'
-
-    // const [user, setUser] = useState({});
-    // const [inputValue, setValue] = useState('Octocat');
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) =>{
         const searchValue = event.target.value;
@@ -20,17 +14,10 @@ export default function Search() {
     const handleSearch = () => {
         if (searchValue) {
             setSearchValue(searchValue)
-            // useEffect(() => {
-            //     fetch(`${apiUrl}/users/${searchValue}`)
-            //         .then(res => res.json())
-            //         .then(data => setUser(data))
-            // }, [ apiUrl ]);
         }
         else{
 
         }
-        // if (inputValue) return router.push(`/?q=${inputValue}`);
-        // if (!inputValue) return router.push("/")
     }
 
     const handleKeyPress = (event: { key: any; }) => {
@@ -38,7 +25,7 @@ export default function Search() {
     }
 
     return (
-        <form className="w-full mx-auto">   
+        <form className="w-full mx-auto" onSubmit={handleSearch}>   
             <label form="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
