@@ -1,20 +1,36 @@
-import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+'use client';
+import { ChangeEvent, useContext, useEffect, useState } from "react";
+import { UserContext, UserProvider, useUserContext } from "../context/Context";
 
 export default function Search() {
 
-    const router = useRouter();
+    const {searchValue, setSearchValue } = useUserContext();
+    // const [searchValue, setSearchValue] = useState('')
 
-    const [inputValue, setValue] = useState('Octocat');
+    // const apiUrl = 'https://api.github.com'
+
+    // const [user, setUser] = useState({});
+    // const [inputValue, setValue] = useState('Octocat');
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) =>{
-        const inputValue = event.target.value;
-        setValue(inputValue);
+        const searchValue = event.target.value;
+        setSearchValue(searchValue);
     }
 
     const handleSearch = () => {
-        if (inputValue) return router.push(`/?q=${inputValue}`);
-        if (!inputValue) return router.push("/")
+        if (searchValue) {
+            setSearchValue(searchValue)
+            // useEffect(() => {
+            //     fetch(`${apiUrl}/users/${searchValue}`)
+            //         .then(res => res.json())
+            //         .then(data => setUser(data))
+            // }, [ apiUrl ]);
+        }
+        else{
+
+        }
+        // if (inputValue) return router.push(`/?q=${inputValue}`);
+        // if (!inputValue) return router.push("/")
     }
 
     const handleKeyPress = (event: { key: any; }) => {
@@ -35,7 +51,7 @@ export default function Search() {
                         className="block w-full  ps-10 input-search" 
                         placeholder="Search GitHub username…" 
                         required
-                        value={inputValue ?? ""} 
+                        value={searchValue ?? ""} 
                         onChange={handleChange}
                         onKeyDown={handleKeyPress}/>
                 <button type="submit" 
