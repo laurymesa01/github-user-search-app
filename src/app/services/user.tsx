@@ -1,5 +1,6 @@
 export interface Users {
     login:               string;
+    name:                string;
     id:                  number;
     node_id:             string;
     avatar_url:          string;
@@ -17,6 +18,17 @@ export interface Users {
     received_events_url: string;
     type:                Type;
     site_admin:          boolean;
+    company:             string;
+    blog:                string;
+    location:            string;
+    email:               null;
+    hireable:            null;
+    bio:                 null;
+    twitter_username:    null;
+    public_repos:        number;
+    public_gists:        number;
+    followers:           number;
+    following:           number;
 }
 
 export enum Type {

@@ -1,31 +1,22 @@
 'use client';
 import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { UserContext, UserProvider, useUserContext } from "../context/Context";
+import { UserContext, UserProvider } from "../context/Context";
 
-export default function Search() {
+interface Props {
+    input: string;
+    handleSubmit: any;
+    handleChange: any;
+}
+export default function Search(props: Props) {
 
-    const {searchValue, setSearchValue } = useUserContext();
+    const {input, handleSubmit, handleChange} = props;
 
-    const handleChange = (event: ChangeEvent<HTMLInputElement>) =>{
-        const searchValue = event.target.value;
-        setSearchValue(searchValue);
-    }
-
-    const handleSearch = () => {
-        if (searchValue) {
-            setSearchValue(searchValue)
-        }
-        else{
-
-        }
-    }
-
-    const handleKeyPress = (event: { key: any; }) => {
-        if (event.key === "Enter") return handleSearch();
-    }
+    // const handleKeyPress = (event: { key: any; }) => {
+    //     if (event.key === "Enter") handleSearch();
+    // }
 
     return (
-        <form className="w-full mx-auto" onSubmit={handleSearch}>   
+        <form className="w-full mx-auto" onSubmit={handleSubmit}>   
             <label form="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
             <div className="relative">
                 <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -37,13 +28,14 @@ export default function Search() {
                         id="default-search" 
                         className="block w-full  ps-10 input-search" 
                         placeholder="Search GitHub username…" 
-                        required
-                        value={searchValue ?? ""} 
+                        required 
                         onChange={handleChange}
-                        onKeyDown={handleKeyPress}/>
+                        value={input ? input : ""}
+                        />
+                        {/* onKeyDown={handleKeyPress} */}
                 <button type="submit" 
                         className="absolute end-2.5 bottom-2.5 button"
-                        onClick={handleSearch}>
+                        onClick={handleSubmit}>
                             Search
                 </button>
             </div>
