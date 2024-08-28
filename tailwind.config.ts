@@ -23,7 +23,8 @@ const config: Config = {
       'almost-white': '#FEFEFE',
       'white': '#FFFFFF',
       'almost-black': '#141D2F',
-      'very-dark-grey': '#1E2A47'
+      'very-dark-grey': '#1E2A47',
+      'blue-hover': '#60ABFF'
     }
   },
   plugins: [],
