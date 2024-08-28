@@ -71,8 +71,8 @@ export default function Home() {
                 handleSubmit= {(e: Event) => handleSubmit(e)}
                 handleChange={handleChange}
         />
-        {loading && <Loader/> }
-        {!loading && <Profile user={user}/>}
+        {loading && <Loader/>}
+        {!loading && <Profile user = {user} loading={ loading }/>}
       </main>
   );
 }

@@ -1,11 +1,13 @@
 'use client';
 import { Users } from '../services/user';
+import Loader from './Loader';
 interface Props{
-    user: Users
+    user: Users;
+    loading: boolean
 }
 export default function Profile(props: Props) {
 
-    const {user} = props;
+    const {user, loading} = props;
     
     return (
         <section className="mt-6 bg-white rounded-lg p-4">

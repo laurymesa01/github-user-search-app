@@ -1,7 +1,4 @@
 'use client';
-import { ChangeEvent, useContext, useEffect, useState } from "react";
-import { UserContext, UserProvider } from "../context/Context";
-
 interface Props {
     input: string;
     handleSubmit: any;
