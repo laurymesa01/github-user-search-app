@@ -11,7 +11,6 @@ import Loader from "./components/Loader";
 export default function Home() {
 
   const apiUrl = 'https://api.github.com';
-
   const [input, setInput] = useState('octocat');
   const [user, setUser] = useState<Users>({
     login: '',
@@ -43,8 +42,9 @@ export default function Home() {
     public_repos: 0,
     public_gists: 0,
     followers: 0,
-    following: 0
-});
+    following: 0,
+    created_at: new Date().toISOString()
+  });
   const [loading, setLoading] = useState(false);
   
   const handleSubmit = async(e: Event) => {
@@ -78,3 +78,4 @@ export default function Home() {
       </main>
   );
 }
+

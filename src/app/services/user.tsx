@@ -29,6 +29,7 @@ export interface Users {
     public_gists:        number;
     followers:           number;
     following:           number;
+    created_at:          string 
 }
 
 export enum Type {
