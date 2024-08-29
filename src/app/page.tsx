@@ -76,14 +76,17 @@ export default function Home() {
 
 
   return (
-      <main className="flex min-h-screen max-w-3xl p-8  flex-col bg-light-grey dark:bg-almost-black">
-        <Header/>
-        <Search input={input} 
-                handleSubmit= {(e: Event) => handleSubmit(e)}
-                handleChange={handleChange}
-        />
-        {loading && <Loader/>}
-        {!loading && user && <Profile user = {user} loading={ loading }/>}
+      <main className="flex flex-col min-h-screen bg-light-grey dark:bg-almost-black">
+        <div className="max-w-3xl p-8">
+          <Header/>
+          <Search input={input} 
+                  handleSubmit= {(e: Event) => handleSubmit(e)}
+                  handleChange={handleChange}
+          />
+          {loading && <Loader/>}
+          {!loading && user && <Profile user = {user} loading={ loading }/>}
+        </div>
+
       </main>
   );
 }

@@ -43,7 +43,7 @@ body {
 }
 
 .theme{
-  @apply font-medium text-[13px]  tracking-[2.5px] text-blue-grey dark:text-white;
+  @apply font-bold text-[13px]  tracking-[2.5px] text-blue-grey dark:text-white;
 }
 
 .p{

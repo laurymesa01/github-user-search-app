@@ -19,7 +19,7 @@ export default function Header() {
             <h2 className="h2">devfinder</h2>
             <div className="flex items-center">
                 <button className="mr-2" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-                    <span className="theme">{theme === 'dark' ? 'Light' : 'Dark'} </span>
+                    <span className="theme">{theme === 'dark' ? 'Light'.toUpperCase() : 'Dark'.toUpperCase()} </span>
                 </button>
                 {theme === 'light' ? (
                     <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
