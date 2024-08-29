@@ -19,15 +19,8 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
+  /* display: flex; */
+  /* justify-content: center; */
 }
 
 @layer utilities {
@@ -37,11 +30,24 @@ body {
 }
 
 .h2{
-  @apply font-bold text-[26px] text-very-dark-grey dark:text-white; 
+  @apply font-bold text-[16px] md:text-[26px] text-very-dark-grey dark:text-white; 
+}
+
+
+.h6{
+  @apply font-medium text-[13px] md:text-[15px] leading-[25px] text-blue-grey dark:text-white;
+}
+
+.span{
+  @apply text-blue font-medium text-[13px] md:text-[16px]
+}
+
+.theme{
+  @apply font-medium text-[13px]  tracking-[2.5px] text-blue-grey dark:text-white;
 }
 
 .p{
-  @apply font-bold text-[13px] tracking-[2.5px] text-blue-grey dark:text-white;
+  @apply font-medium text-[11px] md:text-[13px] text-blue-grey dark:text-white
 }
 
 .input-search{
