@@ -13,6 +13,7 @@ export default function Profile(props: Props) {
     return (
         <section className="mt-6 bg-white rounded-lg p-4 dark:bg-very-dark-grey">
             <div>
+                <Image loader={() => user.avatar_url} src={user.avatar_url} alt={user.name} width={70} height={70} className="rounded-full"/>
                 {/* <Image src={user.avatar_url} alt={user.name} width={25} height={25}/> */}
                 <h2 className="h2">{user.name}</h2>
                 <a className="span">@{user.login}</a>
