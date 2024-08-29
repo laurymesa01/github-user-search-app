@@ -51,7 +51,7 @@ body {
 }
 
 .input-search{
-  @apply bg-almost-white appearance-none py-4 px-12 text-[13px] font-medium  leading-[25px]  rounded-lg  shadow-sm placeholder:text-blue-grey dark:text-white md:text-[18px];
+  @apply bg-almost-white appearance-none py-4 px-12 text-[13px] font-medium  leading-[25px]  rounded-lg  shadow-sm placeholder:text-blue-grey dark:text-white md:text-[18px] dark:bg-very-dark-grey;
 }
 .button{
   @apply px-4 py-2 bg-blue text-white text-[16px] font-bold rounded-lg hover:bg-blue-hover;

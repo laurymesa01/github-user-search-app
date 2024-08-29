@@ -11,7 +11,7 @@ export default function Profile(props: Props) {
     const {user, loading} = props;
     
     return (
-        <section className="mt-6 bg-white rounded-lg p-4">
+        <section className="mt-6 bg-white rounded-lg p-4 dark:bg-very-dark-grey">
             <div>
                 {/* <Image src={user.avatar_url} alt={user.name} width={25} height={25}/> */}
                 <h2 className="h2">{user.name}</h2>
@@ -21,7 +21,7 @@ export default function Profile(props: Props) {
             <div>
                 <p className="h6"></p>
             </div>
-            <div className="px-6 py-4 mt-8 bg-light-grey rounded-lg flex justify-between">
+            <div className="px-6 py-4 mt-8 bg-light-grey rounded-lg flex justify-between dark:bg-almost-black">
                 <div>
                     <p className="p">Repos</p>
                     <h2 className="h2">{user.public_repos}</h2>

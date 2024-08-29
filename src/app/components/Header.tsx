@@ -17,8 +17,8 @@ export default function Header() {
     return (
         <header className="flex justify-between items-center py-6">
             <h2 className="h2">devfinder</h2>
-            <div className="flex">
-                <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+            <div className="flex items-center">
+                <button className="mr-2" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
                     <span className="theme">{theme === 'dark' ? 'Light' : 'Dark'} </span>
                 </button>
                 {theme === 'light' ? (
