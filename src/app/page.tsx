@@ -3,7 +3,7 @@
 import Header from "./components/Header";
 import Search from "./components/Search";
 import Profile from "./components/Profile";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { Type, Users } from "./services/user";
 import Loader from "./components/Loader";
@@ -46,19 +46,28 @@ export default function Home() {
     created_at: new Date().toISOString()
   });
   const [loading, setLoading] = useState(false);
-  
-  const handleSubmit = async(e: Event) => {
-    e.preventDefault();
-    try {
-      setLoading(true);
-      const res = await axios.get(`${apiUrl}/users/${input}`);
-      setUser(res.data);
-    } 
-    catch (error) {
-      console.log(error);
+
+  const handleSubmit = async(e?: Event) => {
+    if (e) {
+      e.preventDefault();
+      
     }
-    setLoading(false);
+      try {
+        setLoading(true);
+        const res = await axios.get(`${apiUrl}/users/${input}`);
+        setUser(res.data);
+      } 
+      catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
   }
+
+  useEffect(() => {
+    handleSubmit()
+  }, [])
+  
+
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) =>{
     setInput(event.target.value);
