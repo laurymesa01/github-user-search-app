@@ -45,6 +45,7 @@ export default function Home() {
     following: 0,
     created_at: new Date().toISOString()
   });
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async(e?: Event) => {
@@ -57,8 +58,8 @@ export default function Home() {
         const res = await axios.get(`${apiUrl}/users/${input}`);
         setUser(res.data);
       } 
-      catch (error) {
-        console.log(error);
+      catch (error: any) {
+        setError(error)
       }
       setLoading(false);
   }
@@ -82,6 +83,7 @@ export default function Home() {
           <Search input={input} 
                   handleSubmit= {(e: Event) => handleSubmit(e)}
                   handleChange={handleChange}
+                  error = {error}
           />
           {loading && <Loader/>}
           {!loading && user && <Profile user = {user} loading={ loading }/>}
