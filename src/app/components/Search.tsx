@@ -33,6 +33,7 @@ export default function Search(props: Props) {
                         required 
                         onChange={handleChange}
                         value={input ? input : ""}
+                        onKeyDown={ (e) => e.key === 'Enter' ? handleSubmit : ''}
                         />
                         {error && <span className='absolute end-32 bottom-4 text-[15px] text-[#F74646] '>No results</span>}    
                         {/* onKeyDown={handleKeyPress} */}
