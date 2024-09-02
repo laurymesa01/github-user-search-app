@@ -6,7 +6,7 @@ interface Props {
     input: string;
     handleSubmit: any;
     handleChange: any;
-    error: any
+    error: boolean
 }
 export default function Search(props: Props) {
 

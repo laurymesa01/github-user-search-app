@@ -7,6 +7,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { Type, Users } from "./services/user";
 import Loader from "./components/Loader";
+import { notFound } from "next/navigation";
 
 
 export default function Home() {
@@ -46,23 +47,23 @@ export default function Home() {
     following: 0,
     created_at: new Date().toISOString()
   });
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async(e?: Event) => {
     if (e) {
       e.preventDefault();
-      
     }
-      try {
-        setLoading(true);
-        const res = await axios.get(`${apiUrl}/users/${input}`);
-        setUser(res.data);
-      } 
-      catch (error: any) {
-        setError(error)
-      }
-      setLoading(false);
+    try {
+      setLoading(true);
+      const res = await axios.get(`${apiUrl}/users/${input}`);
+      setUser(res.data);
+      setError(false);
+    } 
+    catch (error: any) {
+      setError(true);
+    }
+    setLoading(false);
   }
 
   useEffect(() => {
@@ -75,7 +76,7 @@ export default function Home() {
     setInput(event.target.value);
   }
 
-
+  
 
   return (
       <main className="px-8 md:px-[10%] lg:px-[15%] xl:px-[25%] flex flex-col min-h-screen bg-light-grey dark:bg-almost-black">
@@ -87,7 +88,7 @@ export default function Home() {
                   error = {error}
           />
           {loading && <Loader/>}
-          {!loading && user && <Profile user = {user} loading={ loading }/>}
+          {!loading && user && <Profile user = {user} />}
         </div>
 
       </main>
