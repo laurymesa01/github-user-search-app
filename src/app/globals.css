@@ -19,6 +19,7 @@
 }
 
 body {
+  min-width: 320px;
   /* display: flex; */
   /* justify-content: center; */
 }

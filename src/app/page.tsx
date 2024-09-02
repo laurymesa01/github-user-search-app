@@ -8,6 +8,7 @@ import axios from "axios";
 import { Type, Users } from "./services/user";
 import Loader from "./components/Loader";
 
+
 export default function Home() {
 
   const apiUrl = 'https://api.github.com';
@@ -77,8 +78,8 @@ export default function Home() {
 
 
   return (
-      <main className="flex flex-col min-h-screen bg-light-grey dark:bg-almost-black">
-        <div className="max-w-3xl p-8">
+      <main className="px-8 md:px-[10%] lg:px-[15%] xl:px-[25%] flex flex-col min-h-screen bg-light-grey dark:bg-almost-black">
+        <div className="">
           <Header/>
           <Search input={input} 
                   handleSubmit= {(e: Event) => handleSubmit(e)}

@@ -35,8 +35,8 @@ export default function Search(props: Props) {
                         value={input ? input : ""}
                         onKeyDown={ (e) => e.key === 'Enter' ? handleSubmit : ''}
                         />
-                        {error && <span className='absolute end-32 bottom-4 text-[15px] text-[#F74646] '>No results</span>}    
-                        {/* onKeyDown={handleKeyPress} */}
+                {error && <span className='absolute end-32 bottom-4 text-[15px] text-[#F74646] '>No results</span>}    
+
                 <button type="submit" 
                         className="absolute end-2.5 bottom-2.5 button"
                         onClick={handleSubmit}>
