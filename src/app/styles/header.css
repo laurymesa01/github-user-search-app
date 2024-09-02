@@ -1,0 +1,15 @@
+.button-theme:hover .light-theme{
+    color: #90A4D4;
+}
+
+.button-theme:hover .dark-theme{
+    color: black;
+}
+
+.button-theme:hover .light g path{
+    fill: #90A4D4;
+}
+
+.button-theme:hover .dark path{
+    fill: black
+}
