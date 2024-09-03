@@ -7,6 +7,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { Type, Users } from "./services/user";
 import Loader from "./components/Loader";
+import { notFound } from 'next/navigation';
 
 
 export default function Home() {
@@ -55,9 +56,17 @@ export default function Home() {
     }
     try {
       setLoading(true);
-      const res = await axios.get(`${apiUrl}/users/${input}`);
-      setUser(res.data);
-      setError(false);
+      const res = await fetch(`${apiUrl}/users/${input}`);
+      if (res.ok) {
+        const data = await res.json();
+        setUser(data);
+        setError(false);
+      }
+      else {
+        // notFound();
+        throw new Error("No existe el usuario");
+        
+      }
     } 
     catch (error: any) {
       setError(true);

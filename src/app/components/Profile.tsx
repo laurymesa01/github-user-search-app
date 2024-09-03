@@ -8,13 +8,13 @@ interface Props{
 export default function Profile(props: Props) {
 
     const {user} = props;
-    // const date = new Date(user.created_at)
-    // const day = date.toLocaleDateString("en-GB");
+    const date = new Date(user.created_at)
+    const day = format(date, 'd LLLL yyyy');
 
-    const DateFormatter = ( user: Users) => {
-        const date = parseISO(user.created_at)
-        return <time dateTime={user.created_at}>{format(date, 'd LLLL yyyy')}</time>
-    }
+    // const DateFormatter = ( user: Users) => {
+    //     const date = parseISO(user.created_at)
+    //     return <time dateTime={user.created_at}>{format(date, 'd LLLL yyyy')}</time>
+    // }
     
     return (
         <section className="mt-6 bg-white rounded-lg p-4 dark:bg-very-dark-grey">
@@ -28,7 +28,7 @@ export default function Profile(props: Props) {
                             <h2 className="h2">{user.name}</h2>
                             <a className="span">@{user.login}</a>                            
                         </div>
-                        <p className="h6 lg:mt-2">Joined {DateFormatter(user)}</p>
+                        <p className="h6 lg:mt-2">Joined {day}</p>
                     </div>
                 </div>
                 <p className="h6 mt-6 lg:ml-24 lg:mt-0">{user.bio ? user.bio : 'This profile has no bio'}</p>

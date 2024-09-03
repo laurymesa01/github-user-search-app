@@ -1,9 +1,13 @@
 import { waveform } from 'ldrs'
+import React from 'react';
 
-waveform.register()
+// waveform.register()
 
 export default function Loader() {
 
+    React.useEffect(() => {
+        import("ldrs/waveform");
+      });
     return (
         <div className='text-center mt-24'>
             <l-waveform
