@@ -1,5 +1,4 @@
 'use client';
-import Image from "next/image";
 import { Users } from '../services/user';
 import Loader from './Loader';
 import { parseISO, format } from "date-fns"
@@ -9,7 +8,8 @@ interface Props{
 export default function Profile(props: Props) {
 
     const {user} = props;
-
+    // const date = new Date(user.created_at)
+    // const day = date.toLocaleDateString("en-GB");
 
     const DateFormatter = ( user: Users) => {
         const date = parseISO(user.created_at)
@@ -21,8 +21,7 @@ export default function Profile(props: Props) {
             <div className="flex flex-col">
                 <div className="w-full flex">
                     <div>
-                        <Image loader={() => user.avatar_url} src={user.avatar_url} alt='Image' width={70} height={70} className="rounded-full lg:mt-4"/>
-
+                        <img src={user.avatar_url} alt='Image' width={70} height={70} className="rounded-full lg:mt-4"/>
                     </div>
                     <div className="ml-6 flex-grow lg:flex lg:items-start lg:justify-between">
                         <div className="">
@@ -37,15 +36,15 @@ export default function Profile(props: Props) {
             <div className="px-6 py-4 mt-8 bg-light-grey rounded-lg flex justify-between dark:bg-almost-black">
                 <div>
                     <p className="p">Repos</p>
-                    <h2 className="h2">{user.public_repos}</h2>
+                    <h2 className="h2 text-center md:text-start">{user.public_repos}</h2>
                 </div>
                 <div>
                     <p className="p">Followers</p>
-                    <h2 className="h2">{user.followers}</h2>
+                    <h2 className="h2 text-center md:text-start">{user.followers}</h2>
                 </div>
                 <div>
                     <p className="p">Following</p>
-                    <h2 className="h2 ">{user.following}</h2>
+                    <h2 className="h2 text-center md:text-start">{user.following}</h2>
                 </div>
             </div>
             <div className="mt-8 space-y-2 md:grid md:grid-cols-2">
@@ -71,7 +70,7 @@ export default function Profile(props: Props) {
                     <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg">
                         <g fill="#4b6a9b"><path d="M10.858 1.558L1.7.167A1.477 1.477 0 00.517.492 1.49 1.49 0 000 1.608v17.559c0 .458.375.833.833.833h2.709v-4.375c0-.808.65-1.458 1.458-1.458h2.083c.809 0 1.459.65 1.459 1.458V20h3.541V3a1.46 1.46 0 00-1.225-1.442zM4.583 12.292h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm4.167 7.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5H7.5a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zM18.85 9.035l-5.933-1.242V20h5.625A1.46 1.46 0 0020 18.542V10.46c0-.688-.47-1.274-1.15-1.425zM16.875 17.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25zm0-2.5h-1.25a.625.625 0 010-1.25h1.25a.625.625 0 010 1.25z"/></g>
                     </svg>
-                    <p className={`ml-2 h6 ${user.company && 'hover:underline'}`}>{user.company ? user.company : 'Not available'}</p>
+                    <p className={`ml-2 h6 overflow-hidden text-ellipsis whitespace-nowrap ${user.company && 'hover:underline'}`}>{user.company ? user.company : 'Not available'}</p>
                 </button>
             </div>
         </section>
