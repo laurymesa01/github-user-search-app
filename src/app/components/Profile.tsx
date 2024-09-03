@@ -25,7 +25,7 @@ export default function Profile(props: Props) {
                     </div>
                     <div className="ml-6 flex-grow lg:flex lg:items-start lg:justify-between">
                         <div className="">
-                            <h2 className="h2">{user.name}</h2>
+                            <h2 className="h2">{user.name ? user.name : user.login}</h2>
                             <a className="span">@{user.login}</a>                            
                         </div>
                         <p className="h6 lg:mt-2">Joined {day}</p>
