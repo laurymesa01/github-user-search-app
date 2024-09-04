@@ -40,7 +40,7 @@ Users should be able to:
 
 ### Links
 
-<!-- - Solution URL: [Add solution URL here](https://your-solution-url.com) -->
+- Solution URL: [https://www.frontendmentor.io/solutions/github-user-search-app-with-next-and-tailwind-css-noj9HdQ201]
 - Live Site URL: [https://github-user-search-app-ten-liard.vercel.app/]
 
 ## My process
